@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Principals' ethical leadership in the AI Era</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; font-family: 'Segoe UI', Arial, sans-serif; background: #222; color: #2c3e50; }
+.present { position: fixed; inset: 0; overflow: hidden; }
+.slides-wrapper { position: absolute; inset: 0; display: flex; transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1); }
+.slide { min-width: 100%; height: 100%; overflow-y: auto; display: flex; flex-direction: column; justify-content: center; padding: 40px 60px; background: #fff; }
+.slide-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+
+/* controls */
+.nav-bar { position: fixed; bottom: 24px; right: 24px; z-index: 100; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.55); padding: 6px 14px; border-radius: 20px; color: #fff; font-size: 13px; font-family: 'Segoe UI', Arial, sans-serif; }
+.nav-bar button { background: none; border: none; color: #fff; width: 30px; height: 30px; border-radius: 50%; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.15s; }
+.nav-bar button:hover { background: rgba(255,255,255,0.2); }
+.nav-bar button:disabled { opacity: 0.25; cursor: default; }
+.nav-bar button:disabled:hover { background: none; }
+
+/* typography */
+h1 { font-size: 1.7em; text-align: center; margin-bottom: 8px; color: #2c3e50; line-height: 1.3; }
+.title-sub { font-size: 1.1em; text-align: center; color: #e74c3c; margin-bottom: 6px; }
+.title-sub2 { font-size: 0.9em; text-align: center; color: #3498db; }
+h2 { font-size: 1.3em; color: #2980b9; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+h3 { font-size: 1.1em; color: #2980b9; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.sentence-box { background: #f8f9fa; padding: 16px 20px; border-radius: 8px; border-left: 5px solid #3498db; margin-bottom: 10px; font-size: 0.85em; }
+.sentence-box .zh { color: #e74c3c; margin-top: 6px; font-size: 0.95em; }
+.vocab-table { width: 100%; border-collapse: collapse; font-size: 0.75em; margin-top: 8px; }
+.vocab-table td { padding: 5px 10px; border: 1px solid #ddd; }
+.vocab-table td:first-child { font-weight: 600; color: #2c3e50; width: 38%; }
+.terminology { background: #f0e6ff; padding: 10px 16px; border-radius: 8px; border-left: 5px solid #9b59b6; margin: 8px 0; font-size: 0.75em; }
+.term-name { font-weight: 700; color: #8e44ad; }
+.grammar-box { background: #e8f6f3; padding: 12px 18px; border-radius: 8px; border-left: 5px solid #1abc9c; font-size: 0.78em; line-height: 1.6; margin-top: 8px; }
+.grammar-box strong { color: #1abc9c; }
+.summary-box { background: #e8f6f3; padding: 16px 22px; border-radius: 10px; line-height: 1.6; font-size: 0.88em; }
+.summary-box li { margin: 6px 0; }
+.verb-hl { background: #ffeb3b; padding: 1px 5px; border-radius: 3px; font-weight: 600; }
+.section-label { display: inline-block; background: #3498db; color: #fff; padding: 2px 12px; border-radius: 12px; font-size: 0.7em; margin-bottom: 6px; }
+.highlight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.82em; }
+.highlight-item { background: #f8f9fa; padding: 12px 16px; border-radius: 8px; border-left: 4px solid #3498db; }
+.highlight-item .en { font-weight: 600; }
+.highlight-item .zh { color: #e74c3c; font-size: 0.92em; margin-top: 3px; }
+.speak-btn { cursor: pointer; border: none; background: #e8f4f8; border-radius: 4px; padding: 2px 10px; font-size: 0.78em; vertical-align: middle; transition: background 0.15s; }
+.speak-btn:hover { background: #d0eaf2; }
+.vocab-speak { cursor: pointer; border: none; background: none; font-size: 0.8em; padding: 0 3px; margin-left: 2px; vertical-align: middle; }
+.vocab-speak:hover { opacity: 0.6; }
+.keywords { text-align: center; color: #7f8c8d; font-size: 0.78em; margin-top: 18px; }
+.footer { text-align: center; color: #3498db; margin-top: 22px; font-size: 0.85em; }
+
+@media (max-width: 700px) {
+  .slide { padding: 20px 24px; }
+  h1 { font-size: 1.2em; }
+  .highlight-grid { grid-template-columns: 1fr; }
+  .vocab-table { font-size: 0.65em; }
+}
+</style>
+</head>
+<body>
+<div class="present">
+<div class="slides-wrapper" id="slidesWrapper">
+
+<!-- 1: Title -->
+<div class="slide" style="text-align:center;">
+  <div class="slide-inner">
+    <h1>Principals' ethical leadership in the AI Era:<br>A narrative literature review of emerging challenges, strategies, and outcomes</h1>
+    <p class="title-sub">校長在 AI 時代的道德領導：新興挑戰、策略與成果的敘事性文獻回顧</p>
+    <p class="title-sub2">——一項關於學校領導、倫理學與 AI 整合的系統性回顧</p>
+  </div>
+</div>
+
+<!-- 2: Highlights -->
+<div class="slide">
+  <div class="slide-inner">
+    <h2>Highlights 研究亮點</h2>
+    <div class="highlight-grid">
+      <div class="highlight-item"><div class="en">Analyzed how principals exercise ethical leadership in AI adoption and governance.</div><div class="zh">分析校長如何在 AI 採用與治理中行使道德領導。</div></div>
+      <div class="highlight-item"><div class="en">Four categories of insight: dilemmas, strategies, influencing factors, outcomes.</div><div class="zh">四類見解：兩難困境、行動策略、影響因素、成果。</div></div>
+      <div class="highlight-item"><div class="en">Developed the PEAIL framework — leadership as a prism, not a linear progression.</div><div class="zh">發展 PEAIL 架構——領導是一道稜鏡，而非線性進展。</div></div>
+      <div class="highlight-item"><div class="en">Identified three critical gaps: theoretical integration, leadership preparation, empirical evidence.</div><div class="zh">識別三大缺口：理論整合、領導培訓、實證證據。</div></div>
+      <div class="highlight-item" style="grid-column:1/-1;"><div class="en">62 peer-reviewed studies (2018–2025) synthesized via PRISMA-informed search.</div><div class="zh">透過 PRISMA 綜合了 62 篇同儕審查研究（2018–2025）。</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== S1 ===== -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 1</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('The integration of artificial intelligence (AI) into education has intensified questions about how principals exercise ethical leadership in the adoption and governance of emerging technologies.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>The integration of artificial intelligence (AI) into education <span class="verb-hl">has intensified</span> questions about how principals <span class="verb-hl">exercise</span> ethical leadership in the adoption and governance of emerging technologies.</div>
+      <div class="zh">人工智慧（AI）融入教育，加劇了關於校長如何在採用與治理新興科技時行使道德領導的提問。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Integration <button class="vocab-speak" onclick="speak('Integration')">🔊</button></td><td>整合</td></tr>
+      <tr><td>Intensified <button class="vocab-speak" onclick="speak('Intensified')">🔊</button></td><td>加劇</td></tr>
+      <tr><td>Exercise ethical leadership <button class="vocab-speak" onclick="speak('Exercise ethical leadership')">🔊</button></td><td>行使道德領導</td></tr>
+      <tr><td>Adoption <button class="vocab-speak" onclick="speak('Adoption')">🔊</button></td><td>採用</td></tr>
+      <tr><td>Governance <button class="vocab-speak" onclick="speak('Governance')">🔊</button></td><td>治理</td></tr>
+      <tr><td>Emerging technologies <button class="vocab-speak" onclick="speak('Emerging technologies')">🔊</button></td><td>新興科技</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 現在完成式 <strong>has intensified</strong> — 表示過去至今持續的影響<br>
+      • 疑問詞子句 <strong>how principals exercise ethical leadership</strong> — 作介係詞 about 的受詞<br>
+      • 名詞片語 <strong>the adoption and governance of emerging technologies</strong> — of 串接所有格結構
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 2</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('This article reports a systematic review of research published between 2018 and July 2025 at the intersection of school leadership, ethics, and AI.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>This article <span class="verb-hl">reports</span> a systematic review of research published between 2018 and July 2025 at the intersection of school leadership, ethics, and AI.</div>
+      <div class="zh">本文報告了一項針對 2018 年至 2025 年 7 月間發表於學校領導、倫理學與 AI 交叉領域研究的系統性回顧。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Systematic review <button class="vocab-speak" onclick="speak('Systematic review')">🔊</button></td><td>系統性回顧</td></tr>
+      <tr><td>Intersection <button class="vocab-speak" onclick="speak('Intersection')">🔊</button></td><td>交叉領域／交集</td></tr>
+      <tr><td>Published <button class="vocab-speak" onclick="speak('Published')">🔊</button></td><td>發表（的）</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 現在式 <strong>reports</strong> — 描述文章內容（學術寫作常用現在式）<br>
+      • 過去分詞片語 <strong>published between 2018 and July 2025</strong> — 修飾 research<br>
+      • 介係詞片語 <strong>at the intersection of school leadership, ethics, and AI</strong> — 表示跨領域位置
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 3</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('Using a PRISMA-informed search of databases, 62 peer-reviewed studies were identified and synthesized.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>Using a PRISMA-informed search of databases, 62 peer-reviewed studies <span class="verb-hl">were identified</span> and <span class="verb-hl">synthesized</span>.</div>
+      <div class="zh">透過 PRISMA 指引的資料庫搜尋，共識別並綜合了 62 篇同儕審查研究。</div>
+    </div>
+    <div class="terminology">
+      <strong>Terminology 專有詞彙：</strong><br>
+      <span class="term-name">PRISMA</span> (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) — 系統性回顧與後設分析優先報告項目<br>
+      <span class="term-name">Peer-reviewed</span> — 同儕審查：經由領域內專家審核後發表的學術研究。
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>PRISMA-informed <button class="vocab-speak" onclick="speak('PRISMA-informed')">🔊</button></td><td>遵循 PRISMA 指引的</td></tr>
+      <tr><td>Identified <button class="vocab-speak" onclick="speak('Identified')">🔊</button></td><td>識別</td></tr>
+      <tr><td>Synthesized <button class="vocab-speak" onclick="speak('Synthesized')">🔊</button></td><td>綜合</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 被動語態 <strong>were identified and synthesized</strong> — 強調動作的承受者（研究）<br>
+      • 現在分詞片語 <strong>Using a PRISMA-informed search</strong> — 表方式／手段<br>
+      • 複合形容詞 <strong>PRISMA-informed</strong> — 名詞 + 過去分詞構成的修飾語
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 4</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('The analysis revealed four categories of insight: trends in principals\' experiences of dilemmas such as balancing efficiency with equity, strategies for acting in contexts where guidance is limited, influencing factors including policy frameworks and school cultures, and outcomes ranging from increased trust to organizational conflict.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>The analysis <span class="verb-hl">revealed</span> four categories of insight: trends in principals' experiences of dilemmas such as balancing efficiency with equity, strategies for acting in contexts where guidance is limited, influencing factors including policy frameworks and school cultures, and outcomes ranging from increased trust to organizational conflict.</div>
+      <div class="zh">分析揭示了四類見解：校長面臨兩難困境的趨勢（如平衡效率與公平）、在指導方針有限的脈絡中行動的策略、影響因素（包括政策框架與學校文化），以及從信任提升到組織衝突的結果。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Categories of insight <button class="vocab-speak" onclick="speak('Categories of insight')">🔊</button></td><td>見解類別</td></tr>
+      <tr><td>Dilemmas <button class="vocab-speak" onclick="speak('Dilemmas')">🔊</button></td><td>兩難困境</td></tr>
+      <tr><td>Efficiency <button class="vocab-speak" onclick="speak('Efficiency')">🔊</button></td><td>效率</td></tr>
+      <tr><td>Equity <button class="vocab-speak" onclick="speak('Equity')">🔊</button></td><td>公平／公正</td></tr>
+      <tr><td>Policy frameworks <button class="vocab-speak" onclick="speak('Policy frameworks')">🔊</button></td><td>政策框架</td></tr>
+      <tr><td>School cultures <button class="vocab-speak" onclick="speak('School cultures')">🔊</button></td><td>學校文化</td></tr>
+      <tr><td>Organizational conflict <button class="vocab-speak" onclick="speak('Organizational conflict')">🔊</button></td><td>組織衝突</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 過去式 <strong>revealed</strong> — 報告研究發現<br>
+      • 冒號後接四個並列名詞組（平行結構），詳述 categories 的內容<br>
+      • 現在分詞片語 <strong>balancing efficiency with equity</strong>、<strong>ranging from increased trust to organizational conflict</strong><br>
+      • 關係子句 <strong>where guidance is limited</strong> — 修飾 contexts
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 5</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('From these findings, the Principals\' Ethical AI Leadership (PEAIL) framework was developed.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>From these findings, the Principals' Ethical AI Leadership (PEAIL) framework <span class="verb-hl">was developed</span>.</div>
+      <div class="zh">根據這些發現，本研究發展了「校長道德 AI 領導」（PEAIL）架構。</div>
+    </div>
+    <div class="terminology">
+      <strong>Terminology 專有詞彙：</strong><br>
+      <span class="term-name">PEAIL Framework</span> (Principals' Ethical AI Leadership) — 校長道德 AI 領導架構：將領導概念化為一道稜鏡，折射出個人、組織與系統層級的同步道德需求。
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Findings <button class="vocab-speak" onclick="speak('Findings')">🔊</button></td><td>發現</td></tr>
+      <tr><td>Framework <button class="vocab-speak" onclick="speak('Framework')">🔊</button></td><td>架構</td></tr>
+      <tr><td>Developed <button class="vocab-speak" onclick="speak('Developed')">🔊</button></td><td>發展</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 被動語態 <strong>was developed</strong> — 強調架構本身，而非開發者<br>
+      • 介係詞片語 <strong>From these findings</strong> — 置於句首表示「根據／源於」<br>
+      • 專有名詞縮寫 <strong>PEAIL</strong> — 首字母縮略詞
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 6</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('The framework conceptualizes leadership not as a linear progression of phases, but as a prism refracting simultaneous demands at individual, organizational, and systemic levels.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>The framework <span class="verb-hl">conceptualizes</span> leadership not as a linear progression of phases, but as a prism <span class="verb-hl">refracting</span> simultaneous demands at individual, organizational, and systemic levels.</div>
+      <div class="zh">該架構將領導概念化為一道稜鏡，折射出個人、組織與系統層級的同步需求，而非線性的階段進展。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Conceptualizes <button class="vocab-speak" onclick="speak('Conceptualizes')">🔊</button></td><td>概念化</td></tr>
+      <tr><td>Linear progression <button class="vocab-speak" onclick="speak('Linear progression')">🔊</button></td><td>線性進展</td></tr>
+      <tr><td>Prism <button class="vocab-speak" onclick="speak('Prism')">🔊</button></td><td>稜鏡</td></tr>
+      <tr><td>Refracting <button class="vocab-speak" onclick="speak('Refracting')">🔊</button></td><td>折射</td></tr>
+      <tr><td>Simultaneous <button class="vocab-speak" onclick="speak('Simultaneous')">🔊</button></td><td>同步的</td></tr>
+      <tr><td>Systemic <button class="vocab-speak" onclick="speak('Systemic')">🔊</button></td><td>系統層級的</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 現在式 <strong>conceptualizes</strong> — 描述架構的理論主張<br>
+      • 對等連接詞 <strong>not... but...</strong> — 表示「不是……而是……」的對比<br>
+      • 現在分詞片語 <strong>refracting simultaneous demands</strong> — 修飾 prism<br>
+      • 平行結構 <strong>at individual, organizational, and systemic levels</strong>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 7</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('Despite this emergent body of work, three important gaps remain.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>Despite this emergent body of work, three important gaps <span class="verb-hl">remain</span>.</div>
+      <div class="zh">儘管已有此一新興研究體系，仍有三個重要的缺口尚待填補。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Despite <button class="vocab-speak" onclick="speak('Despite')">🔊</button></td><td>儘管</td></tr>
+      <tr><td>Emergent <button class="vocab-speak" onclick="speak('Emergent')">🔊</button></td><td>新興的</td></tr>
+      <tr><td>Body of work <button class="vocab-speak" onclick="speak('Body of work')">🔊</button></td><td>研究體系</td></tr>
+      <tr><td>Gaps <button class="vocab-speak" onclick="speak('Gaps')">🔊</button></td><td>缺口</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 現在式 <strong>remain</strong> — 表示存在的狀態<br>
+      • 介係詞 <strong>Despite + 名詞片語</strong> — 表示讓步（「儘管……」）<br>
+      • 轉折功能 — 從研究成果轉向批判性反思的過渡句
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 8</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('First, theoretical approaches are not well integrated across normative, critical, and sociotechnical traditions.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>First, theoretical approaches <span class="verb-hl">are not</span> well <span class="verb-hl">integrated</span> across normative, critical, and sociotechnical traditions.</div>
+      <div class="zh">第一，理論方法在規範性、批判性與社會技術傳統之間尚未良好整合。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Theoretical approaches <button class="vocab-speak" onclick="speak('Theoretical approaches')">🔊</button></td><td>理論方法</td></tr>
+      <tr><td>Normative <button class="vocab-speak" onclick="speak('Normative')">🔊</button></td><td>規範性的</td></tr>
+      <tr><td>Critical <button class="vocab-speak" onclick="speak('Critical')">🔊</button></td><td>批判性的</td></tr>
+      <tr><td>Sociotechnical <button class="vocab-speak" onclick="speak('Sociotechnical')">🔊</button></td><td>社會技術的</td></tr>
+      <tr><td>Traditions <button class="vocab-speak" onclick="speak('Traditions')">🔊</button></td><td>傳統／學術傳統</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 被動語態 <strong>are not integrated</strong> — 否定形式，表示「尚未被整合」<br>
+      • 副詞 <strong>well</strong> — 修飾過去分詞 integrated<br>
+      • 平行結構 <strong>normative, critical, and sociotechnical</strong> — 三個形容詞並列<br>
+      • 序數詞 <strong>First</strong> — 表示列舉中的第一項
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 9</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('Second, leadership preparation and professional learning rarely address AI ethics explicitly.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>Second, leadership preparation and professional learning rarely <span class="verb-hl">address</span> AI ethics explicitly.</div>
+      <div class="zh">第二，領導培訓與專業學習很少明確涉及 AI 倫理。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Leadership preparation <button class="vocab-speak" onclick="speak('Leadership preparation')">🔊</button></td><td>領導培訓</td></tr>
+      <tr><td>Professional learning <button class="vocab-speak" onclick="speak('Professional learning')">🔊</button></td><td>專業學習</td></tr>
+      <tr><td>Address <button class="vocab-speak" onclick="speak('Address')">🔊</button></td><td>涉及／處理</td></tr>
+      <tr><td>Explicitly <button class="vocab-speak" onclick="speak('Explicitly')">🔊</button></td><td>明確地</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 現在式 <strong>address</strong> — 描述當前的普遍情況<br>
+      • 頻率副詞 <strong>rarely</strong> — 置於主要動詞之前，表示「很少」<br>
+      • 副詞 <strong>explicitly</strong> — 修飾 address<br>
+      • 序數詞 <strong>Second</strong> — 接續 First，表示第二項缺口
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 10</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('Third, there is little empirical evidence linking principals\' ethical choices about AI to classroom practices or to students\' learning and well-being.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>Third, there <span class="verb-hl">is</span> little empirical evidence <span class="verb-hl">linking</span> principals' ethical choices about AI to classroom practices or to students' learning and well-being.</div>
+      <div class="zh">第三，少有實證證據將校長對 AI 的道德選擇與課堂實踐或學生的學習福祉連結起來。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Empirical evidence <button class="vocab-speak" onclick="speak('Empirical evidence')">🔊</button></td><td>實證證據</td></tr>
+      <tr><td>Linking <button class="vocab-speak" onclick="speak('Linking')">🔊</button></td><td>連結</td></tr>
+      <tr><td>Classroom practices <button class="vocab-speak" onclick="speak('Classroom practices')">🔊</button></td><td>課堂實踐</td></tr>
+      <tr><td>Well-being <button class="vocab-speak" onclick="speak('Well-being')">🔊</button></td><td>福祉</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • <strong>There is + 名詞</strong> — 存在句<br>
+      • <strong>little</strong> — 帶否定意味的數量詞（vs. a little「有一些」）<br>
+      • 現在分詞片語 <strong>linking... to...</strong> — 修飾 evidence<br>
+      • 對等連接詞 <strong>or</strong> — 連接兩個 to 片語
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 11</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('Future directions include embedding AI ethics into leadership training, designing empirical studies that trace leadership decisions to student outcomes, and developing policies that institutionalize accountability and equity.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>Future directions <span class="verb-hl">include</span> embedding AI ethics into leadership training, designing empirical studies that trace leadership decisions to student outcomes, and developing policies that institutionalize accountability and equity.</div>
+      <div class="zh">未來方向包括將 AI 倫理融入領導培訓、設計追蹤領導決策對學生成果影響的實證研究，以及制定將問責與公平制度化的政策。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Embedding <button class="vocab-speak" onclick="speak('Embedding')">🔊</button></td><td>嵌入／融入</td></tr>
+      <tr><td>Leadership training <button class="vocab-speak" onclick="speak('Leadership training')">🔊</button></td><td>領導培訓</td></tr>
+      <tr><td>Trace <button class="vocab-speak" onclick="speak('Trace')">🔊</button></td><td>追蹤</td></tr>
+      <tr><td>Institutionalize <button class="vocab-speak" onclick="speak('Institutionalize')">🔊</button></td><td>制度化</td></tr>
+      <tr><td>Accountability <button class="vocab-speak" onclick="speak('Accountability')">🔊</button></td><td>問責</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 現在式 <strong>include</strong> + 三個動名詞片語（<strong>embedding, designing, developing</strong>）— 表列舉<br>
+      • 關係子句 <strong>that trace leadership decisions to student outcomes</strong> — 修飾 studies<br>
+      • 關係子句 <strong>that institutionalize accountability and equity</strong> — 修飾 policies
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 12</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('By identifying these gaps and outlining concrete pathways forward, the article provides both a conceptual framework and a practice-oriented agenda for ethical school leadership in the AI era.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>By identifying these gaps and outlining concrete pathways forward, the article <span class="verb-hl">provides</span> both a conceptual framework and a practice-oriented agenda for ethical school leadership in the AI era.</div>
+      <div class="zh">透過識別這些缺口並勾勒出具體的前進路徑，本文同時提供了 AI 時代道德學校領導的概念架構與實踐導向的議程。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Identifying <button class="vocab-speak" onclick="speak('Identifying')">🔊</button></td><td>識別</td></tr>
+      <tr><td>Outlining <button class="vocab-speak" onclick="speak('Outlining')">🔊</button></td><td>勾勒</td></tr>
+      <tr><td>Concrete pathways <button class="vocab-speak" onclick="speak('Concrete pathways')">🔊</button></td><td>具體路徑</td></tr>
+      <tr><td>Practice-oriented <button class="vocab-speak" onclick="speak('Practice-oriented')">🔊</button></td><td>實踐導向的</td></tr>
+      <tr><td>Agenda <button class="vocab-speak" onclick="speak('Agenda')">🔊</button></td><td>議程</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 介係詞 <strong>By + 動名詞片語</strong>（identifying, outlining）— 表方式方法（「透過……」）<br>
+      • 現在式 <strong>provides</strong> — 總結文章貢獻<br>
+      • 對等連接詞 <strong>both... and...</strong> — 連接 a conceptual framework 與 a practice-oriented agenda<br>
+      • 複合形容詞 <strong>practice-oriented</strong> — 名詞 + 過去分詞構成的修飾語
+    </div>
+  </div>
+</div>
+
+<!-- Summary -->
+<div class="slide">
+  <div class="slide-inner">
+    <h2>Summary 總結（一）</h2>
+    <div class="summary-box">
+      <strong>主要發現：</strong>
+      <ul>
+        <li>系統性回顧了 62 篇關於校長 AI 道德領導的研究（2018–2025）</li>
+        <li>四類見解：<br>(a) 校長面臨的兩難困境（效率 vs. 公平）<br>(b) 有限指引下的行動策略<br>(c) 影響因素（政策框架、學校文化）<br>(d) 成果（從信任提升到組織衝突）</li>
+        <li>發展了 PEAIL 架構（校長道德 AI 領導）——領導是稜鏡，而非線性進展</li>
+        <li>識別了三大研究缺口：理論整合、領導培訓、實證證據</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <h2>Summary 總結（二）</h2>
+    <div class="summary-box">
+      <strong>研究貢獻與未來方向：</strong>
+      <ul>
+        <li>提供了 AI 時代校長道德領導的概念架構（PEAIL）</li>
+        <li>三大未來方向：<br>(a) 將 AI 倫理嵌入領導培訓<br>(b) 設計連結領導決策與學生成果的實證研究<br>(c) 制定制度化問責與公平的政策</li>
+        <li>為學校領導在 AI 整合中的倫理實踐提供了理論基礎與行動議程</li>
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+</div><!-- slides-wrapper -->
+</div><!-- present -->
+
+<!-- Controls -->
+<div class="nav-bar">
+  <button id="prevBtn" onclick="goSlide(-1)">◀</button>
+  <span id="slideCounter">1 / 16</span>
+  <button id="nextBtn" onclick="goSlide(1)">▶</button>
+</div>
+
+<script>
+function speak(text) {
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.65;
+  window.speechSynthesis.speak(u);
+}
+
+var wrapper = document.getElementById('slidesWrapper');
+var slides = wrapper.querySelectorAll('.slide');
+var total = slides.length;
+var current = 0;
+
+function updateSlide() {
+  wrapper.style.transform = 'translateX(-' + (current * 100) + '%)';
+  document.getElementById('slideCounter').textContent = (current + 1) + ' / ' + total;
+  document.getElementById('prevBtn').disabled = current === 0;
+  document.getElementById('nextBtn').disabled = current === total - 1;
+}
+
+function goSlide(dir) {
+  var next = current + dir;
+  if (next < 0 || next >= total) return;
+  current = next;
+  updateSlide();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+    e.preventDefault();
+    goSlide(1);
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    e.preventDefault();
+    goSlide(-1);
+  } else if (e.key === 'Home') {
+    e.preventDefault();
+    current = 0;
+    updateSlide();
+  } else if (e.key === 'End') {
+    e.preventDefault();
+    current = total - 1;
+    updateSlide();
+  }
+});
+
+    updateSlide();
+</script>
+
+
+</body>
+</html>
