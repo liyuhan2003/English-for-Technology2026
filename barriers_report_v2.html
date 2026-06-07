@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hierarchical analysis of in-service teachers' barriers to technology-integrated instruction</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; font-family: 'Segoe UI', Arial, sans-serif; background: #222; color: #2c3e50; }
+.present { position: fixed; inset: 0; overflow: hidden; }
+.slides-wrapper { position: absolute; inset: 0; display: flex; transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1); }
+.slide { min-width: 100%; height: 100%; overflow-y: auto; display: flex; flex-direction: column; justify-content: center; padding: 40px 60px; background: #fff; }
+.slide-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+
+/* controls */
+.nav-bar { position: fixed; bottom: 24px; right: 24px; z-index: 100; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.55); padding: 6px 14px; border-radius: 20px; color: #fff; font-size: 13px; font-family: 'Segoe UI', Arial, sans-serif; }
+.nav-bar button { background: none; border: none; color: #fff; width: 30px; height: 30px; border-radius: 50%; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.15s; }
+.nav-bar button:hover { background: rgba(255,255,255,0.2); }
+.nav-bar button:disabled { opacity: 0.25; cursor: default; }
+.nav-bar button:disabled:hover { background: none; }
+
+/* typography */
+h1 { font-size: 1.7em; text-align: center; margin-bottom: 8px; color: #2c3e50; line-height: 1.3; }
+.title-sub { font-size: 1.1em; text-align: center; color: #e74c3c; margin-bottom: 6px; }
+.title-sub2 { font-size: 0.9em; text-align: center; color: #3498db; }
+h2 { font-size: 1.3em; color: #2980b9; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+h3 { font-size: 1.1em; color: #2980b9; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.sentence-box { background: #f8f9fa; padding: 16px 20px; border-radius: 8px; border-left: 5px solid #3498db; margin-bottom: 10px; font-size: 0.85em; }
+.sentence-box .zh { color: #e74c3c; margin-top: 6px; font-size: 0.95em; }
+.vocab-table { width: 100%; border-collapse: collapse; font-size: 0.75em; margin-top: 8px; }
+.vocab-table td { padding: 5px 10px; border: 1px solid #ddd; }
+.vocab-table td:first-child { font-weight: 600; color: #2c3e50; width: 38%; }
+.terminology { background: #f0e6ff; padding: 10px 16px; border-radius: 8px; border-left: 5px solid #9b59b6; margin: 8px 0; font-size: 0.75em; }
+.term-name { font-weight: 700; color: #8e44ad; }
+.grammar-box { background: #e8f6f3; padding: 12px 18px; border-radius: 8px; border-left: 5px solid #1abc9c; font-size: 0.78em; line-height: 1.6; margin-top: 8px; }
+.grammar-box strong { color: #1abc9c; }
+.summary-box { background: #e8f6f3; padding: 16px 22px; border-radius: 10px; line-height: 1.6; font-size: 0.88em; }
+.summary-box li { margin: 6px 0; }
+.verb-hl { background: #ffeb3b; padding: 1px 5px; border-radius: 3px; font-weight: 600; }
+.section-label { display: inline-block; background: #3498db; color: #fff; padding: 2px 12px; border-radius: 12px; font-size: 0.7em; margin-bottom: 6px; }
+.highlight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.82em; }
+.highlight-item { background: #f8f9fa; padding: 12px 16px; border-radius: 8px; border-left: 4px solid #3498db; }
+.highlight-item .en { font-weight: 600; }
+.highlight-item .zh { color: #e74c3c; font-size: 0.92em; margin-top: 3px; }
+.speak-btn { cursor: pointer; border: none; background: #e8f4f8; border-radius: 4px; padding: 2px 10px; font-size: 0.78em; vertical-align: middle; transition: background 0.15s; }
+.speak-btn:hover { background: #d0eaf2; }
+.vocab-speak { cursor: pointer; border: none; background: none; font-size: 0.8em; padding: 0 3px; margin-left: 2px; vertical-align: middle; }
+.vocab-speak:hover { opacity: 0.6; }
+.keywords { text-align: center; color: #7f8c8d; font-size: 0.78em; margin-top: 18px; }
+.footer { text-align: center; color: #3498db; margin-top: 22px; font-size: 0.85em; }
+
+@media (max-width: 700px) {
+  .slide { padding: 20px 24px; }
+  h1 { font-size: 1.2em; }
+  .highlight-grid { grid-template-columns: 1fr; }
+  .vocab-table { font-size: 0.65em; }
+}
+</style>
+</head>
+<body>
+<div class="present">
+<div class="slides-wrapper" id="slidesWrapper">
+
+<!-- 1: Title -->
+<div class="slide" style="text-align:center;">
+  <div class="slide-inner">
+    <h1>Hierarchical analysis of in-service teachers' barriers to technology-integrated instruction:<br>A review of 2000–2024 publications</h1>
+    <p class="title-sub">在職教師科技融入教學障礙的層級分析：2000–2024 年文獻回顧</p>
+    <p class="title-sub2">——一項關於教師科技採用障礙的系統性文獻回顧</p>
+  </div>
+</div>
+
+<!-- 2: Highlights -->
+<div class="slide">
+  <div class="slide-inner">
+    <h2>Highlights 研究亮點</h2>
+    <div class="highlight-grid">
+      <div class="highlight-item"><div class="en">Analyzed in-service teachers' barriers to technology-integrated instruction from 116 empirical studies (2000–2024).</div><div class="zh">分析了 116 篇實證研究（2000–2024）中在職教師科技融入教學的障礙。</div></div>
+      <div class="highlight-item"><div class="en">Proposed a four-order hierarchical framework: systemic support, beliefs/attitudes, classroom management, design thinking.</div><div class="zh">提出四階層級框架：系統支援、信念與態度、課堂管理、設計思維。</div></div>
+      <div class="highlight-item"><div class="en">First-order barriers (systemic) were most frequently cited; first + second order co-occurrence was most common.</div><div class="zh">第一階障礙（系統性）被提及最多；第一與第二階障礙並存最為普遍。</div></div>
+      <div class="highlight-item"><div class="en">University teachers showed higher rates of second-, third-, and fourth-order barriers.</div><div class="zh">大學教師在第二、三、四階障礙上出現率特別高。</div></div>
+      <div class="highlight-item" style="grid-column:1/-1;"><div class="en">COVID-19 significantly elevated second- and third-order barriers, highlighting internal resistance and online classroom management challenges.</div><div class="zh">COVID-19 顯著提升了第二與第三階障礙，凸顯內在抗拒與線上課堂管理挑戰。</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== S1 ===== -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 1</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('Barriers to technology adoption in education have emerged as a critical issue in technology-integrated instruction, widely recognized as key factors shaping teachers\' willingness and readiness to adopt technology in classroom practice.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>Barriers to technology adoption in education <span class="verb-hl">have emerged</span> as a critical issue in technology-integrated instruction, widely <span class="verb-hl">recognized</span> as key factors <span class="verb-hl">shaping</span> teachers' willingness and readiness to adopt technology in classroom practice.</div>
+      <div class="zh">教育領域中科技採用的障礙已成為科技融入教學中的核心議題，被廣泛認為是影響教師在課堂實踐中採用科技之意願與準備度的關鍵因素。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Barriers <button class="vocab-speak" onclick="speak('Barriers')">🔊</button></td><td>障礙</td></tr>
+      <tr><td>Technology adoption <button class="vocab-speak" onclick="speak('Technology adoption')">🔊</button></td><td>科技採用</td></tr>
+      <tr><td>Technology-integrated instruction <button class="vocab-speak" onclick="speak('Technology-integrated instruction')">🔊</button></td><td>科技融入教學</td></tr>
+      <tr><td>Willingness <button class="vocab-speak" onclick="speak('Willingness')">🔊</button></td><td>意願</td></tr>
+      <tr><td>Readiness <button class="vocab-speak" onclick="speak('Readiness')">🔊</button></td><td>準備度</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 現在完成式 <strong>have emerged</strong><button class="vocab-speak" onclick="speak('have emerged')" title="朗讀文法例句">🔊</button> — 表示從過去持續至今的發展趨勢<br>
+      • 分詞片語 <strong>widely recognized as key factors shaping...</strong><button class="vocab-speak" onclick="speak('widely recognized as key factors shaping...')" title="朗讀文法例句">🔊</button> — 作後位修飾，補充說明 barriers 的性質
+    </div>
+  </div>
+</div>
+
+<!-- ===== S2 ===== -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 2</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('This systematic literature review analyzed in-service teachers\' barriers to technology-integrated instruction, based on 116 empirical studies published from 2000 to 2024 in the Web of Science SSCI database.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>This systematic literature review <span class="verb-hl">analyzed</span> in-service teachers' barriers to technology-integrated instruction, based on 116 empirical studies published from 2000 to 2024 in the Web of Science SSCI database.</div>
+      <div class="zh">本系統性文獻回顧分析了在職教師在科技融入教學中的障礙，以 2000 年至 2024 年間發表於 Web of Science SSCI 資料庫的 116 篇實證研究為基礎。</div>
+    </div>
+    <div class="terminology">
+      <strong>Terminology 專有詞彙：</strong><br>
+      <span class="term-name">Web of Science SSCI</span><button class="vocab-speak" onclick="speak('Web of Science SSCI')" title="朗讀術語">🔊</button> (Social Sciences Citation Index) — 社會科學引文索引：Web of Science 平台下收錄社會科學領域高品質期刊的引文資料庫。<br>
+      <span class="term-name">In-service teachers</span><button class="vocab-speak" onclick="speak('In-service teachers')" title="朗讀術語">🔊</button> — 在職教師：相對於職前教師（pre-service teachers），指已正式任教中的現職教師。
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Systematic literature review <button class="vocab-speak" onclick="speak('Systematic literature review')">🔊</button></td><td>系統性文獻回顧</td></tr>
+      <tr><td>Empirical studies <button class="vocab-speak" onclick="speak('Empirical studies')">🔊</button></td><td>實證研究</td></tr>
+      <tr><td>Database <button class="vocab-speak" onclick="speak('Database')">🔊</button></td><td>資料庫</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 過去式 <strong>analyzed</strong><button class="vocab-speak" onclick="speak('analyzed')" title="朗讀文法例句">🔊</button> — 描述本研究已完成的方法步驟<br>
+      • 分詞片語 <strong>based on 116 empirical studies published from 2000 to 2024</strong><button class="vocab-speak" onclick="speak('based on 116 empirical studies published from 2000 to 2024')" title="朗讀文法例句">🔊</button> — 表示研究依據，過去分詞 published 進一步修飾 studies
+    </div>
+  </div>
+</div>
+
+<!-- ===== S3 ===== -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 3</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('A four-order hierarchical framework was proposed in this review to analyze the barriers.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>A four-order hierarchical framework <span class="verb-hl">was proposed</span> in this review to analyze the barriers.</div>
+      <div class="zh">本回顧提出了一個四階層級框架以分析這些障礙。</div>
+    </div>
+    <div class="terminology">
+      <strong>Terminology 專有詞彙：</strong><br>
+      <span class="term-name">Hierarchical framework</span><button class="vocab-speak" onclick="speak('Hierarchical framework')" title="朗讀術語">🔊</button> — 層級框架：將研究對象依據性質或重要程度排列成不同層次的分析架構。
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Four-order <button class="vocab-speak" onclick="speak('Four-order')">🔊</button></td><td>四階的</td></tr>
+      <tr><td>Hierarchical <button class="vocab-speak" onclick="speak('Hierarchical')">🔊</button></td><td>層級的</td></tr>
+      <tr><td>Proposed <button class="vocab-speak" onclick="speak('Proposed')">🔊</button></td><td>提出</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 被動語態 <strong>was proposed</strong><button class="vocab-speak" onclick="speak('was proposed')" title="朗讀文法例句">🔊</button> — 強調框架本身，淡化主動執行者<br>
+      • 不定詞片語 <strong>to analyze the barriers</strong><button class="vocab-speak" onclick="speak('to analyze the barriers')" title="朗讀文法例句">🔊</button> — 表示目的（「為了……」）
+    </div>
+  </div>
+</div>
+
+<!-- ===== S4 ===== -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 4</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('First-order barriers include limited systemic support such as lack of resources, technical support, and time. Second-order barriers involve inadequate beliefs and attitudes such as teachers\' concerns, emotion, and resistance to technology use. Third-order barriers address classroom management challenges. Fourth-order barriers are related to the lack of design thinking.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>
+        (1) First-order barriers, which <span class="verb-hl">include</span> limited systemic support such as lack of resources, technical support, and time;<br>
+        (2) Second-order barriers, <span class="verb-hl">involving</span> inadequate beliefs and attitudes such as teachers' concerns, emotion, and resistance to technology use;<br>
+        (3) Third-order barriers, <span class="verb-hl">addressing</span> classroom management challenges; and<br>
+        (4) Fourth-order barriers, <span class="verb-hl">related</span> to the lack of design thinking.
+      </div>
+      <div class="zh">（1）第一階障礙：有限的系統性支援，如資源、技術支援與時間的不足；（2）第二階障礙：不充分的信念與態度，如教師的憂慮、情緒及對科技使用的抗拒；（3）第三階障礙：課堂管理挑戰；（4）第四階障礙：設計思維的缺乏。</div>
+    </div>
+    <div class="terminology">
+      <strong>Terminology 專有詞彙：</strong><br>
+      <span class="term-name">First-order barriers</span><button class="vocab-speak" onclick="speak('First-order barriers')" title="朗讀術語">🔊</button> — 第一階障礙：源自外部環境的客觀限制（如設備、時間、支援），又稱「外部障礙」。<br>
+      <span class="term-name">Second-order barriers</span><button class="vocab-speak" onclick="speak('Second-order barriers')" title="朗讀術語">🔊</button> — 第二階障礙：來自教師內在的信念、態度與情緒，又稱「內部障礙」。<br>
+      <span class="term-name">Design thinking</span><button class="vocab-speak" onclick="speak('Design thinking')" title="朗讀術語">🔊</button> — 設計思維：以使用者為中心、強調創意問題解決的思考方法論。
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Systemic support <button class="vocab-speak" onclick="speak('Systemic support')">🔊</button></td><td>系統性支援</td></tr>
+      <tr><td>Inadequate <button class="vocab-speak" onclick="speak('Inadequate')">🔊</button></td><td>不充分的</td></tr>
+      <tr><td>Resistance <button class="vocab-speak" onclick="speak('Resistance')">🔊</button></td><td>抗拒</td></tr>
+      <tr><td>Classroom management <button class="vocab-speak" onclick="speak('Classroom management')">🔊</button></td><td>課堂管理</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 關係子句 <strong>which include limited systemic support</strong><button class="vocab-speak" onclick="speak('which include limited systemic support')" title="朗讀文法例句">🔊</button> — 非限定性子句，補充說明第一階障礙的內容<br>
+      • 並列分詞片語 <strong>involving / addressing / related to</strong><button class="vocab-speak" onclick="speak('involving / addressing / related to')" title="朗讀文法例句">🔊</button> — 各自修飾對應的 barriers，形成平行結構<br>
+      • <strong>such as</strong><button class="vocab-speak" onclick="speak('such as')" title="朗讀文法例句">🔊</button> 引導例舉 — 列出具體例子，與 <strong>including</strong><button class="vocab-speak" onclick="speak('including')" title="朗讀文法例句">🔊</button> 用法相近但更口語化
+    </div>
+  </div>
+</div>
+
+<!-- ===== S5 ===== -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 5</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('Results drawn from the 116 studies revealed that first-order barriers were the most frequently mentioned challenges, followed by the second-, third-, and fourth-order barriers.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>Results <span class="verb-hl">drawn</span> from the 116 studies <span class="verb-hl">revealed</span> that first-order barriers <span class="verb-hl">were</span> the most frequently mentioned challenges, followed by the second-, third-, and fourth-order barriers.</div>
+      <div class="zh">從 116 篇研究中得出的結果顯示，第一階障礙是被提及最頻繁的挑戰，依序為第二、三、四階障礙。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Drawn from <button class="vocab-speak" onclick="speak('Drawn from')">🔊</button></td><td>從……得出</td></tr>
+      <tr><td>Revealed <button class="vocab-speak" onclick="speak('Revealed')">🔊</button></td><td>揭示；顯示</td></tr>
+      <tr><td>Frequently mentioned <button class="vocab-speak" onclick="speak('Frequently mentioned')">🔊</button></td><td>頻繁被提及的</td></tr>
+      <tr><td>Followed by <button class="vocab-speak" onclick="speak('Followed by')">🔊</button></td><td>依序為；其後為</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 過去分詞片語 <strong>drawn from the 116 studies</strong><button class="vocab-speak" onclick="speak('drawn from the 116 studies')" title="朗讀文法例句">🔊</button> — 修飾 Results，表示資料來源<br>
+      • <strong>that</strong><button class="vocab-speak" onclick="speak('that')" title="朗讀文法例句">🔊</button> 名詞子句 — 作 revealed 的受詞，引導整個發現內容<br>
+      • 分詞片語 <strong>followed by the second-, third-, and fourth-order barriers</strong><button class="vocab-speak" onclick="speak('followed by the second-, third-, and fourth-order barriers')" title="朗讀文法例句">🔊</button> — 補充說明排名順序
+    </div>
+  </div>
+</div>
+
+<!-- ===== S6 ===== -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 6</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('Many studies identified overlapping barriers, with the combination of first- and second-order barriers being the most frequently mentioned, revealing more frequent co-occurrence of limited systemic support and inadequate beliefs and attitudes.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>Many studies <span class="verb-hl">identified</span> overlapping barriers, with the combination of first- and second-order barriers <span class="verb-hl">being</span> the most frequently mentioned, <span class="verb-hl">revealing</span> more frequent co-occurrence of limited systemic support and inadequate beliefs and attitudes.</div>
+      <div class="zh">許多研究識別出重疊的障礙，其中第一與第二階障礙的組合被提及最多，揭示了有限系統性支援與不充分信念態度的更高頻率共同出現。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Overlapping <button class="vocab-speak" onclick="speak('Overlapping')">🔊</button></td><td>重疊的</td></tr>
+      <tr><td>Combination <button class="vocab-speak" onclick="speak('Combination')">🔊</button></td><td>組合</td></tr>
+      <tr><td>Co-occurrence <button class="vocab-speak" onclick="speak('Co-occurrence')">🔊</button></td><td>共同出現；並存</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 介係詞片語 <strong>with + 名詞 + being...</strong><button class="vocab-speak" onclick="speak('with + 名詞 + being...')" title="朗讀文法例句">🔊</button> — 獨立分詞結構，表示附帶狀況（「其中……」）<br>
+      • 分詞片語 <strong>revealing more frequent co-occurrence</strong><button class="vocab-speak" onclick="speak('revealing more frequent co-occurrence')" title="朗讀文法例句">🔊</button> — 補充說明前述現象的意涵
+    </div>
+  </div>
+</div>
+
+<!-- ===== S7 ===== -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 7</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('Moreover, university teachers exhibited particularly higher occurrence rates across the second-, third-, and fourth-order barriers.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>Moreover, university teachers <span class="verb-hl">exhibited</span> particularly higher occurrence rates across the second-, third-, and fourth-order barriers.</div>
+      <div class="zh">此外，大學教師在第二、三、四階障礙上表現出特別高的出現率。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Moreover <button class="vocab-speak" onclick="speak('Moreover')">🔊</button></td><td>此外；再者</td></tr>
+      <tr><td>Exhibited <button class="vocab-speak" onclick="speak('Exhibited')">🔊</button></td><td>表現出；呈現</td></tr>
+      <tr><td>Occurrence rates <button class="vocab-speak" onclick="speak('Occurrence rates')">🔊</button></td><td>出現率</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 副詞 <strong>Moreover</strong><button class="vocab-speak" onclick="speak('Moreover')" title="朗讀文法例句">🔊</button> — 置於句首，銜接前段並引入補充資訊<br>
+      • 介係詞 <strong>across</strong><button class="vocab-speak" onclick="speak('across')" title="朗讀文法例句">🔊</button> — 表示「遍及；橫跨」多個類別，此處指涵蓋第二至四階三個層次
+    </div>
+  </div>
+</div>
+
+<!-- ===== S8 ===== -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 8</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('This review also investigated the role of COVID-19 pandemic for the teachers\' barriers to technology integration.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>This review also <span class="verb-hl">investigated</span> the role of COVID-19 pandemic for the teachers' barriers to technology integration.</div>
+      <div class="zh">本回顧同時探討了 COVID-19 疫情對教師科技整合障礙所扮演的角色。</div>
+    </div>
+    <div class="terminology">
+      <strong>Terminology 專有詞彙：</strong><br>
+      <span class="term-name">Technology integration</span><button class="vocab-speak" onclick="speak('Technology integration')" title="朗讀術語">🔊</button> — 科技整合：將數位科技有意義地融入教學與學習活動的過程，與 technology-integrated instruction 同義。
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Investigated <button class="vocab-speak" onclick="speak('Investigated')">🔊</button></td><td>探討；調查</td></tr>
+      <tr><td>Role <button class="vocab-speak" onclick="speak('Role')">🔊</button></td><td>角色；作用</td></tr>
+      <tr><td>Pandemic <button class="vocab-speak" onclick="speak('Pandemic')">🔊</button></td><td>全球大流行（疫情）</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 副詞 <strong>also</strong><button class="vocab-speak" onclick="speak('also')" title="朗讀文法例句">🔊</button> — 置於助動詞後、主要動詞前，表示「同時亦」，銜接前段並擴展研究範疇<br>
+      • 名詞片語 <strong>the role of COVID-19 pandemic for...</strong><button class="vocab-speak" onclick="speak('the role of COVID-19 pandemic for...')" title="朗讀文法例句">🔊</button> — of 表示歸屬，for 表示針對的對象
+    </div>
+  </div>
+</div>
+
+<!-- ===== S9 ===== -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 9</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('Compared to non-pandemic studies, teachers confronted significantly higher occurrence rates of the second- and third-order barriers to technology integration during the COVID-19 pandemic.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>Compared to non-pandemic studies, teachers <span class="verb-hl">confronted</span> significantly higher occurrence rates of the second- and third-order barriers to technology integration during the COVID-19 pandemic.</div>
+      <div class="zh">與非疫情期間的研究相比，教師在 COVID-19 疫情期間面臨了顯著更高的第二與第三階科技整合障礙出現率。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Compared to <button class="vocab-speak" onclick="speak('Compared to')">🔊</button></td><td>與……相比</td></tr>
+      <tr><td>Confronted <button class="vocab-speak" onclick="speak('Confronted')">🔊</button></td><td>面臨；遭遇</td></tr>
+      <tr><td>Significantly <button class="vocab-speak" onclick="speak('Significantly')">🔊</button></td><td>顯著地</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • 分詞片語 <strong>Compared to non-pandemic studies</strong><button class="vocab-speak" onclick="speak('Compared to non-pandemic studies')" title="朗讀文法例句">🔊</button> — 置於句首作比較狀語，表示對照條件<br>
+      • 副詞 <strong>significantly</strong><button class="vocab-speak" onclick="speak('significantly')" title="朗讀文法例句">🔊</button> — 修飾形容詞 higher，在學術寫作中常用以強調統計或實質上的差異
+    </div>
+  </div>
+</div>
+
+<!-- ===== S10 ===== -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="section-label">Sentence 10</span>
+    <h2>句子解析 <button class="speak-btn" onclick="speak('This implied that the sudden shift to fully online instruction increased teachers\' internal resistance, and highlighted the challenges of classroom management in a fully online instructional environment.')">🔊 朗讀句子</button></h2>
+    <div class="sentence-box">
+      <div>This <span class="verb-hl">implied</span> that the sudden shift to fully online instruction <span class="verb-hl">increased</span> teachers' internal resistance, and <span class="verb-hl">highlighted</span> the challenges of classroom management in a fully online instructional environment.</div>
+      <div class="zh">這意味著突然轉向完全線上教學加劇了教師的內在抗拒，並凸顯了在完全線上教學環境中課堂管理的挑戰。</div>
+    </div>
+    <div><strong style="font-size:0.78em;">Vocabulary 單字：</strong></div>
+    <table class="vocab-table">
+      <tr><td>Implied <button class="vocab-speak" onclick="speak('Implied')">🔊</button></td><td>意味著；暗示</td></tr>
+      <tr><td>Sudden shift <button class="vocab-speak" onclick="speak('Sudden shift')">🔊</button></td><td>突然轉變</td></tr>
+      <tr><td>Internal resistance <button class="vocab-speak" onclick="speak('Internal resistance')">🔊</button></td><td>內在抗拒</td></tr>
+      <tr><td>Highlighted <button class="vocab-speak" onclick="speak('Highlighted')">🔊</button></td><td>凸顯；強調</td></tr>
+      <tr><td>Instructional environment <button class="vocab-speak" onclick="speak('Instructional environment')">🔊</button></td><td>教學環境</td></tr>
+    </table>
+    <div class="grammar-box">
+      <strong>Grammar 文法說明：</strong><br>
+      • <strong>that</strong><button class="vocab-speak" onclick="speak('that')" title="朗讀文法例句">🔊</button> 名詞子句 — 作 implied 的受詞，包含兩個並列謂語（increased... and highlighted...）<br>
+      • 對等連接詞 <strong>and</strong><button class="vocab-speak" onclick="speak('and')" title="朗讀文法例句">🔊</button> — 連接 increased 與 highlighted，形成平行動詞結構，共享同一主語 the sudden shift
+    </div>
+  </div>
+</div>
+
+<!-- Summary -->
+<div class="slide">
+  <div class="slide-inner">
+    <h2>Summary 總結（一）</h2>
+    <div class="summary-box">
+      <strong>研究方法與框架：</strong>
+      <ul>
+        <li>系統性回顧 116 篇實證研究（Web of Science SSCI，2000–2024），聚焦在職教師的科技融入教學障礙</li>
+        <li>提出四階層級障礙框架：<br>
+          (1) <strong>第一階</strong>：有限系統性支援（資源、技術支援、時間）<br>
+          (2) <strong>第二階</strong>：不充分的信念與態度（憂慮、情緒、抗拒）<br>
+          (3) <strong>第三階</strong>：課堂管理挑戰<br>
+          (4) <strong>第四階</strong>：設計思維缺乏
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-inner">
+    <h2>Summary 總結（二）</h2>
+    <div class="summary-box">
+      <strong>主要發現：</strong>
+      <ul>
+        <li>第一階障礙（外部系統性限制）被提及最頻繁，依序為第二、三、四階</li>
+        <li>第一與第二階障礙共同出現最為普遍，顯示外部限制與內在信念障礙高度相關</li>
+        <li>大學教師在第二、三、四階障礙上出現率特別高</li>
+        <li>COVID-19 疫情期間，第二階（內在抗拒）與第三階（課堂管理）障礙顯著升高，凸顯突然轉向線上教學的衝擊</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- slides-wrapper -->
+</div><!-- present -->
+
+<!-- Controls -->
+<div class="nav-bar">
+  <button id="prevBtn" onclick="goSlide(-1)">◀</button>
+  <span id="slideCounter">1 / 13</span>
+  <button id="nextBtn" onclick="goSlide(1)">▶</button>
+</div>
+
+<script>
+function speak(text) {
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.65;
+
+  var keepAlive = setInterval(function() {
+    if (!window.speechSynthesis.speaking) {
+      clearInterval(keepAlive);
+    } else {
+      window.speechSynthesis.pause();
+      window.speechSynthesis.resume();
+    }
+  }, 10000);
+
+  u.onend = function() { clearInterval(keepAlive); };
+  u.onerror = function() { clearInterval(keepAlive); };
+
+  window.speechSynthesis.speak(u);
+}
+
+var wrapper = document.getElementById('slidesWrapper');
+var slides = wrapper.querySelectorAll('.slide');
+var total = slides.length;
+var current = 0;
+
+function updateSlide() {
+  wrapper.style.transform = 'translateX(-' + (current * 100) + '%)';
+  document.getElementById('slideCounter').textContent = (current + 1) + ' / ' + total;
+  document.getElementById('prevBtn').disabled = current === 0;
+  document.getElementById('nextBtn').disabled = current === total - 1;
+}
+
+function goSlide(dir) {
+  var next = current + dir;
+  if (next < 0 || next >= total) return;
+  current = next;
+  updateSlide();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+    e.preventDefault();
+    goSlide(1);
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    e.preventDefault();
+    goSlide(-1);
+  } else if (e.key === 'Home') {
+    e.preventDefault();
+    current = 0;
+    updateSlide();
+  } else if (e.key === 'End') {
+    e.preventDefault();
+    current = total - 1;
+    updateSlide();
+  }
+});
+
+updateSlide();
+</script>
+
+</body>
+</html>
